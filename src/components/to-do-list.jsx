@@ -3,46 +3,41 @@ import "./to-do-list.css";
 import Notes from "./notes";
 import auth from "../auth/auth";
 
-export default class ToDoList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  logout() {
+const ToDoList = (props) => {
+  const logout = () => {
     auth.logout(() => {
-      this.props.history.push("/");
+      props.history.push("/");
     });
-  }
+  };
 
-  handleClick(evt) {
-    this.logout();
-  }
+  const handleClick = (evt) => {
+    logout();
+  };
 
-  render() {
-    return (
-      <div className="container">
-        <div className="row">
-          <div className="col"></div>
-          <div className="col-md-auto content-text">
-            <span>{this.props.location.state.username}</span>'s to do list
-          </div>
-          <div className="col col-lg-2">
-            <button
-              name="logout"
-              type="submit"
-              className="btn btn-primary"
-              onClick={this.handleClick}
-            >
-              Logout
-            </button>
-          </div>
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col"></div>
+        <div className="col-md-auto content-text">
+          <span>{props.location.state.username}</span>'s to do list
         </div>
-
-        <div className=" justify-content-center">
-          <Notes />
+        <div className="col col-lg-2">
+          <button
+            name="logout"
+            type="submit"
+            className="btn btn-primary"
+            onClick={handleClick}
+          >
+            Logout
+          </button>
         </div>
       </div>
-    );
-  }
-}
+
+      <div className=" justify-content-center">
+        <Notes />
+      </div>
+    </div>
+  );
+};
+
+export default ToDoList;
