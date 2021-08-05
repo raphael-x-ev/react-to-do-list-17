@@ -4,17 +4,6 @@ import auth from "../auth/auth";
 import "./login.css";
 
 const Login = (props) => {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     username: "",
-  //     password: "",
-  //     formErrors: { username: "", password: "" },
-  //     usernameValid: false,
-  //     passwordValid: false,
-  //     authorized: false,
-  //   };
-  // }
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [formErrors, setFormErrors] = useState({ username: "", password: "" });
@@ -22,13 +11,6 @@ const Login = (props) => {
   const [passwordValid, setPasswordValid] = useState(false);
   const [authorized, setAuth] = useState(false);
 
-  // const handleUserInput = (e) => {
-  //   const name = e.target.name;
-  //   const value = e.target.value;
-  //   this.setState({ [name]: value }, () => {
-  //     validateField(name, value);
-  //   });
-  // };
   const handleUserInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
