@@ -9,14 +9,14 @@ const List = (props) => {
             <th
               className="todo-header"
               scope="col"
-              // onClick={() => this.props.onSortByToDoName()}
+              onClick={props.onSortByToDoName}
             >
               To Do
             </th>
             <th
               className="todo-header"
               scope="col"
-              // onClick={() => this.props.onSortByToDoDate()}
+              onClick={props.onSortByToDoDate}
             >
               Date Added
             </th>

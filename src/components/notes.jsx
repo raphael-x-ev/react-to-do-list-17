@@ -36,21 +36,15 @@ const Notes = () => {
     setToDo(newTodos);
   };
 
-  function handleSortToDoName() {
-    this.setState((previousState) => {
-      return {
-        todoList: previousState.todoList.sort(dynamicSort("name")),
-      };
-    });
-  }
+  const handleSortToDoName = () => {
+    const newTodos = [...todo];
+    setToDo(newTodos.sort(dynamicSort("name")));
+  };
 
-  function handleSortToDoDate() {
-    this.setState((previousState) => {
-      return {
-        todoList: previousState.todoList.sort(dynamicSort("date")),
-      };
-    });
-  }
+  const handleSortToDoDate = () => {
+    const newTodos = [...todo];
+    setToDo(newTodos.sort(dynamicSort("date")));
+  };
 
   function dynamicSort(property) {
     var sortOrder = 1;
@@ -90,8 +84,8 @@ const Notes = () => {
       <List
         list={todo}
         onRemoveToDo={handleRemoveToDo}
-        // onSortByToDoName={handleSortToDoName}
-        // onSortByToDoDate={handleSortToDoDate}
+        onSortByToDoName={handleSortToDoName}
+        onSortByToDoDate={handleSortToDoDate}
       />
     </div>
   );
